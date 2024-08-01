@@ -26,6 +26,43 @@
 
     <!-- Main CSS File -->
     <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
+    
+    <style>
+    	#text_box{
+		  font-size: 3.5vw;
+		  text-align: center;
+		  font-family: Noto Sans KR, sans-serif;
+		  font-weight: bold;
+		}
+		
+		#blink {
+		  animation: blink 0.5s infinite;
+		  font-size: 3.5vw;
+		}
+		
+		@keyframes blink {
+		  to {
+		    opacity: 0;
+		  }
+		}
+    </style>
+    <script>
+    	document.addEventListener("DOMContentLoaded", function() {
+            const content = "늘 끊임없이 배우고자 하는 \n백엔드 개발자 황준하 포트폴리오입니다.";
+            const text = document.querySelector("#text");
+            let i = 0;
+            
+            function typing() {
+                if (i < content.length) {
+                    let txt = content[i++];
+                    text.innerHTML += txt === "\n" ? "<br/>" : txt;
+                    setTimeout(typing, 200);
+                }
+            }
+            
+            typing();
+        });
+    </script>
 
     <!-- =======================================================
 	* Template Name: FlexStart
@@ -44,9 +81,12 @@
             <!-- Hero Section -->
             <div id="hero" class="hero section">
 
-                <div class="container">
+                <div class="container" id="typing">
                     <div class="row gy-4">
-                        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
+	                    <div id="text_box">
+							<span id="text"></span><span id="blink">|</span>
+						</div>
+                        <!--<div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
                             <h1 data-aos="fade-up">포트폴리오 제목 부분</h1>
                             <p data-aos="fade-up" data-aos-delay="100">내용 들어갈 문장</p>
                             <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
@@ -55,7 +95,7 @@
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
                             <img src="/static/bootstrap/assets/img/hero-img.png" class="img-fluid animated" alt="">
-                        </div>
+                        </div>-->
                     </div>
                 </div>
 
@@ -67,18 +107,20 @@
                 <div class="container" data-aos="fade-up">
                     <div class="row gx-0">
 
-                        <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                            <div class="content">
-                                <h3>Who I Am</h3>
-                                <h2>나에 대한 주제 제목</h2>
-                                <p> 나에 대한 내용 </p>
-                                <div class="text-center text-lg-start">
+                        <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
+                                <h3>About Me</h3>
+                                <h2>"늘 새로운 도전과 배움 속에서 <br>개발하는 것이 즐거운 개발자 황준하입니다."</h2>
+                                <p>
+                                	저의 손으로 제작하는 것을 좋아하기에 프로그램 언어로 개발할 수 있다는 점에서 진로를 정하게 되었습니다.
+                                	개발자라는 직업을 하면서 세상에 도움이 되는 프로그램을 제작하고자 합니다.
+                                	저는 늘 배우는 것에 흥미를 느끼며 새로운 것에 배울 준비가 되어있습니다.
+								</p>
+                                <!--<div class="text-center text-lg-start">
                                     <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                                         <span>Read More</span>
                                         <i class="bi bi-arrow-right"></i>
                                     </a>
-                                </div>
-                            </div>
+                                </div>-->
                         </div>
 
                         <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
@@ -88,16 +130,18 @@
                     </div>
                 </div>
 
-            </div><!-- /About Section -->
+            </div>
+            <!-- /About Section -->
 
             <!-- Services Section -->
             <div id="services" class="services section">
 
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
-                    <h2>Services</h2>
-                    <p>Check Our Services<br></p>
-                </div><!-- End Section Title -->
+                    <h2>Tech Stack</h2>
+                    <p>사용해보고 경험해 본 기술 스택<br></p>
+                </div>
+                <!-- End Section Title -->
 
                 <div class="container">
 
@@ -105,55 +149,43 @@
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item item-cyan position-relative">
-                                <i class="bi bi-activity icon"></i>
-                                <h3>Nesciunt Mete</h3>
-                                <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>데이터베이스</h3>
+                                <p><br>MaraiDB, MyBatis, H2 <br> PostgreSQL, OracleDB, MongoDB</p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-item item-orange position-relative">
-                                <i class="bi bi-broadcast icon"></i>
-                                <h3>Eosle Commodi</h3>
-                                <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>개발 툴</h3>
+                                <p><br>Visual Studio Code, Eclipse, <br> Intelli J, Spring Tool Suite 4</p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-item item-teal position-relative">
-                                <i class="bi bi-easel icon"></i>
-                                <h3>Ledo Markt</h3>
-                                <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>프론트엔드</h3>
+                                <p><br>HTML5, CSS, JavaScript, React</p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="service-item item-red position-relative">
-                                <i class="bi bi-bounding-box-circles icon"></i>
-                                <h3>Asperiores Commodi</h3>
-                                <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>자격증</h3>
+                                <p><br>정보처리기사, 정보처리산업기사, <br> SQLD, 네트워크관리사2급, 컴퓨터활용능력1급</p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="service-item item-indigo position-relative">
-                                <i class="bi bi-calendar4-week icon"></i>
-                                <h3>Velit Doloremque.</h3>
-                                <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>버전 관리</h3>
+                                <p><br>GitHub, Git, Svn</p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="service-item item-pink position-relative">
-                                <i class="bi bi-chat-square-text icon"></i>
-                                <h3>Dolori Architecto</h3>
-                                <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-                                <a href="#" class="read-more stretched-link"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                <h3>백엔드</h3>
+                                <p><br>Java, Jsp, Spring, Spring Boot</p>
                             </div>
                         </div><!-- End Service Item -->
 
@@ -161,7 +193,8 @@
 
                 </div>
 
-            </div><!-- /Services Section -->
+            </div>
+            <!-- /Services Section -->
 
             <!-- Portfolio Section -->
             <div id="portfolio" class="portfolio section">
@@ -178,82 +211,56 @@
 
                         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-product">Product</li>
-                            <li data-filter=".filter-branding">Branding</li>
-                            <li data-filter=".filter-books">Books</li>
+                            <li data-filter=".filter-team">Team</li>
+                            <li data-filter=".filter-individual">Individual</li>
                         </ul><!-- End Portfolio Filters -->
 
                         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/001-fin.jpg" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>App 1</h4>
+                                        <h4>Team</h4>
                                         <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/app-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="/static/bootstrap/assets/img/portfolio/001-fin.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Product 1</h4>
+                                        <h4>Team</h4>
                                         <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/product-1.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/001-react.jpg" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Branding 1</h4>
+                                        <h4>Team</h4>
                                         <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/branding-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="/static/bootstrap/assets/img/portfolio/001-react.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
+                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/001-portfolio.png" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Books 1</h4>
+                                        <h4>Individual</h4>
                                         <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/books-1.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>App 2</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/app-2.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Product 2</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/product-2.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="/static/bootstrap/assets/img/portfolio/001-portfolio.png" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
@@ -331,7 +338,7 @@
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
                     <h2>Contact</h2>
-                    <p>Contact Us</p>
+                    <p>Contact Me</p>
                 </div><!-- End Section Title -->
 
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -346,25 +353,24 @@
                                         <i class="bi bi-geo-alt"></i>
                                         <h3>Address</h3>
                                         <p>A108 Adam Street</p>
-                                        <p>New York, NY 535022</p>
+                                        <p>인천, NY 535022</p>
                                     </div>
                                 </div><!-- End Info Item -->
 
                                 <div class="col-md-6">
                                     <div class="info-item" data-aos="fade" data-aos-delay="300">
                                         <i class="bi bi-telephone"></i>
-                                        <h3>Call Us</h3>
-                                        <p>+1 5589 55488 55</p>
-                                        <p>+1 6678 254445 41</p>
+                                        <h3>Call Me</h3>
+                                        <p>+82 010 4175 6818</p>
                                     </div>
                                 </div><!-- End Info Item -->
 
                                 <div class="col-md-6">
                                     <div class="info-item" data-aos="fade" data-aos-delay="400">
                                         <i class="bi bi-envelope"></i>
-                                        <h3>Email Us</h3>
-                                        <p>info@example.com</p>
-                                        <p>contact@example.com</p>
+                                        <h3>Email Me</h3>
+                                        <p>h_leopold@naver.com</p>
+                                        <p>ha01821113@gmail.com</p>
                                     </div>
                                 </div><!-- End Info Item -->
 
@@ -372,8 +378,8 @@
                                     <div class="info-item" data-aos="fade" data-aos-delay="500">
                                         <i class="bi bi-clock"></i>
                                         <h3>Open Hours</h3>
-                                        <p>Monday - Friday</p>
-                                        <p>9:00AM - 05:00PM</p>
+                                        <p>Monday - Sunday</p>
+                                        <p>8:00AM - 23:00PM</p>
                                     </div>
                                 </div><!-- End Info Item -->
 
