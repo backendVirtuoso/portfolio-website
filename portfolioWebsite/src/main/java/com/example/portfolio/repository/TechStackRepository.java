@@ -1,5 +1,9 @@
 package com.example.portfolio.repository;
 
-public class TechStackRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.example.portfolio.domain.TechStack;
+
+public interface TechStackRepository extends JpaRepository<TechStack, Integer> {
 
 }

@@ -13,5 +13,10 @@ public class AboutController {
 	public String main(Model model) {
 	    return "about"; // index.html을 반환
 	}
+	
+	@GetMapping("/register")
+	public String about(Model model) {
+		return "about-register"; 
+	}
 
 }

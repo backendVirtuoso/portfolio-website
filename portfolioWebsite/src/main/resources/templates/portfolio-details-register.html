@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>개인 포트폴리오 사이트</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <link href="/static/bootstrap/assets/img/favicon.png" rel="icon">
+    <link href="/static/bootstrap/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="/static/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/bootstrap/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/static/bootstrap/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
+    <style>
+        #main { padding-top: 60px; }
+        #content { width: 416px; }
+        #heading { padding-bottom: 40px; }
+        
+        #imagePreview {
+            width: 860px;
+            height: 480px;
+            border: 1px solid black;
+            border-radius: 20px 20px 20px 20px;
+            overflow: hidden;
+            margin: 20px 10px 10px 0px;
+        }
+    </style>
+</head>
+
+<body class="portfolio-details-page">
+    <div layout:fragment="content">
+        <div id="main" class="main">
+        
+            <div class="page-title">
+                <div id="heading" class="heading">
+                    <div class="container">
+                        <div class="row d-flex justify-content-center text-center">
+                            <div class="col-lg-8">
+                                <h1>Portfolio Details</h1>
+                                <p class="mb-0">프로젝트 설명 등록 페이지입니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Details Section -->
+            <div id="portfolio-details" class="portfolio-details section">
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="row gy-4">
+
+                        <div class="col-lg-8">
+                            <input type="file" class="form-control" id="imagePath" name="imageFile" multiple>
+                            <img src="/static/bootstrap/assets/img/bg.jpg" id="imagePreview" class="thumbnail" alt="이미지 미리 보기">
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                                <h3>Project information</h3>
+                                <ul>
+                                    <li>
+                                        <label class="form-label"><strong>GitHub</strong></label>
+                                        <input type="text" class="form-control" id="inputLink" placeholder="깃허브 링크를 첨부해주세요">
+                                    </li>
+                                    <li>
+                                        <label class="form-label"><strong>Frontend</strong></label>
+                                        <input type="text" class="form-control" id="frondend" placeholder="프론트엔드 기술스택 입력해주세요">
+                                    </li>
+                                    <li>
+                                        <label class="form-label"><strong>Backend</strong></label>
+                                        <input type="text" class="form-control" id="backend" placeholder="백엔드 기술스택 입력해주세요">
+                                    </li>
+                                    <li>
+                                        <label class="form-label"><strong>Database</strong></label>
+                                        <input type="text" class="form-control" id="database" placeholder="데이터베이스 기술스택 입력해주세요">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+                                <h2>프로젝트 주요기능 설명</h2>
+                                <div id="textareas-container" class="col-lg-8">
+                                    <textarea id="content" class="form-control" rows="7" maxlength="500" placeholder="500자 이내로 작성해주세요."></textarea>
+                                </div>
+                                <div class="btn-group mt-3" role="group">
+                                    <button type="button" class="btn btn-secondary" id="prevBtn">이전</button>
+                                    <button type="button" class="btn btn-secondary" id="nextBtn">다음</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Portfolio Details Section -->
+        </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let currentIndex = 0;
+        let textareas = [];
+        const imagePath = document.getElementById('imagePath');
+        const textareasContainer = document.getElementById('textareas-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        imagePath.addEventListener('change', function(event) {
+            const files = event.target.files;
+            textareasContainer.innerHTML = ''; 
+            textareas = [];
+            currentIndex = 0;
+
+            for (let i = 0; i < files.length; i++) {
+                const textarea = document.createElement('textarea');
+                textarea.className = 'form-control';
+                textarea.rows = 7;
+                textarea.maxLength = 500;
+                textarea.style.display = i === 0 ? 'block' : 'none';
+                textareas.push(textarea);
+                textareasContainer.appendChild(textarea);
+            }
+
+            updatePlaceholder();
+        });
+
+        prevBtn.addEventListener('click', function() {
+            if (textareas.length > 0) {
+                textareas[currentIndex].style.display = 'none';
+                currentIndex = (currentIndex - 1 + textareas.length) % textareas.length;
+                textareas[currentIndex].style.display = 'block';
+                updatePlaceholder();
+            }
+        });
+
+        nextBtn.addEventListener('click', function() {
+            if (textareas.length > 0) {
+                textareas[currentIndex].style.display = 'none';
+                currentIndex = (currentIndex + 1) % textareas.length;
+                textareas[currentIndex].style.display = 'block';
+                updatePlaceholder();
+            }
+        });
+
+        function updatePlaceholder() {
+            if (textareas.length > 0) {
+                textareas[currentIndex].placeholder = `500자 이내로 작성해주세요. (${currentIndex + 1}/${textareas.length})`;
+            }
+        }
+    });
+    </script>
+</body>
+
+</html>
