@@ -18,10 +18,10 @@ public class About {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Integer id;
 
-	@Column(name = "title", nullable = false)
+	@Column(name = "title", nullable = false, length = 500)
 	private String title;
 	
-	@Column(name = "content", nullable = false)
+	@Column(name = "content", nullable = false, length = 500)
 	private String content;
 	
 	@Column(name = "img_url", nullable = false)
