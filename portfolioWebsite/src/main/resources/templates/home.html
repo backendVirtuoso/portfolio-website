@@ -45,6 +45,7 @@
 		    opacity: 0;
 		  }
 		}
+		.service-item p { white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */ }
     </style>
     <script>
     	document.addEventListener("DOMContentLoaded", function() {
@@ -86,16 +87,6 @@
 	                    <div id="text_box">
 							<span id="text"></span><span id="blink">|</span>
 						</div>
-                        <!--<div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                            <h1 data-aos="fade-up">포트폴리오 제목 부분</h1>
-                            <p data-aos="fade-up" data-aos-delay="100">내용 들어갈 문장</p>
-                            <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-                                <a href="#about" class="btn-get-started">Get Started <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-                            <img src="/static/bootstrap/assets/img/hero-img.png" class="img-fluid animated" alt="">
-                        </div>-->
                     </div>
                 </div>
 
@@ -108,23 +99,13 @@
                     <div class="row gx-0">
 
                         <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
-                                <h3>About Me</h3>
-                                <h2>"늘 새로운 도전과 배움 속에서 <br>개발하는 것이 즐거운 개발자 황준하입니다."</h2>
-                                <p>
-                                	저의 손으로 제작하는 것을 좋아하기에 프로그램 언어로 개발할 수 있다는 점에서 진로를 정하게 되었습니다.
-                                	개발자라는 직업을 하면서 세상에 도움이 되는 프로그램을 제작하고자 합니다.
-                                	저는 늘 배우는 것에 흥미를 느끼며 새로운 것에 배울 준비가 되어있습니다.
-								</p>
-                                <!--<div class="text-center text-lg-start">
-                                    <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
-                                        <span>Read More</span>
-                                        <i class="bi bi-arrow-right"></i>
-                                    </a>
-                                </div>-->
+                            <h3>About Me</h3>
+                            <h2 th:text="${about.title}"></h2>
+                            <p th:text="${about.content}"></p>
                         </div>
 
                         <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                            <img src="/static/bootstrap/assets/img/about.jpg" class="img-fluid" alt="">
+                            <img th:src="@{/about/{imgUrl}(imgUrl=${about.imgUrl})}" class="img-fluid" alt="" style="width:500px;">
                         </div>
 
                     </div>
@@ -144,57 +125,114 @@
                 <!-- End Section Title -->
 
                 <div class="container">
-
                     <div class="row gy-4">
-
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item item-cyan position-relative">
                                 <h3>데이터베이스</h3>
-                                <p><br>MaraiDB, MyBatis, H2 <br> PostgreSQL, OracleDB, MongoDB</p>
+                                <p th:text="${techStack.database}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-item item-orange position-relative">
                                 <h3>개발 툴</h3>
-                                <p><br>Visual Studio Code, Eclipse, <br> Intelli J, Spring Tool Suite 4</p>
+                                <p th:text="${techStack.devTool}"></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-item item-teal position-relative">
                                 <h3>프론트엔드</h3>
-                                <p><br>HTML5, CSS, JavaScript, React</p>
+                                <p th:text="${techStack.frontend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="service-item item-red position-relative">
                                 <h3>자격증</h3>
-                                <p><br>정보처리기사, 정보처리산업기사, <br> SQLD, 네트워크관리사2급, 컴퓨터활용능력1급</p>
+                                <p th:text="${techStack.certificate}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="service-item item-indigo position-relative">
                                 <h3>버전 관리</h3>
-                                <p><br>GitHub, Git, Svn</p>
+                                <p th:text="${techStack.versionManagement}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="service-item item-pink position-relative">
                                 <h3>백엔드</h3>
-                                <p><br>Java, Jsp, Spring, Spring Boot</p>
+                                <p th:text="${techStack.backend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
+                    </div>
+                </div>
+            </div>
+            <!-- /Services Section -->
+            
+            <!-- Clients Section -->
+            <div id="clients" class="clients section">
 
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>Clients</h2>
+                    <p>We work with best clients<br></p>
+                </div><!-- End Section Title -->
+
+                <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="swiper init-swiper">
+                        <script type="application/json" class="swiper-config">
+                            {
+                                "loop": true,
+                                "speed": 400,
+                                "autoplay": {
+                                    "delay": 5000
+                                },
+                                "slidesPerView": "auto",
+                                "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                },
+                                "breakpoints": {
+                                    "320": {
+                                        "slidesPerView": 2,
+                                        "spaceBetween": 40
+                                    },
+                                    "480": {
+                                        "slidesPerView": 3,
+                                        "spaceBetween": 60
+                                    },
+                                    "640": {
+                                        "slidesPerView": 4,
+                                        "spaceBetween": 80
+                                    },
+                                    "992": {
+                                        "slidesPerView": 6,
+                                        "spaceBetween": 120
+                                    }
+                                }
+                            }
+                        </script>
+                        <div class="swiper-wrapper align-items-center">
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
                     </div>
 
                 </div>
 
-            </div>
-            <!-- /Services Section -->
+            </div><!-- /Clients Section -->
 
             <!-- Portfolio Section -->
             <div id="portfolio" class="portfolio section">
@@ -269,68 +307,6 @@
                     </div>
                 </div>
             </div><!-- /Portfolio Section -->
-
-            <!-- Clients Section -->
-            <div id="clients" class="clients section">
-
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Clients</h2>
-                    <p>We work with best clients<br></p>
-                </div><!-- End Section Title -->
-
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                    <div class="swiper init-swiper">
-                        <script type="application/json" class="swiper-config">
-                            {
-                                "loop": true,
-                                "speed": 600,
-                                "autoplay": {
-                                    "delay": 5000
-                                },
-                                "slidesPerView": "auto",
-                                "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                },
-                                "breakpoints": {
-                                    "320": {
-                                        "slidesPerView": 2,
-                                        "spaceBetween": 40
-                                    },
-                                    "480": {
-                                        "slidesPerView": 3,
-                                        "spaceBetween": 60
-                                    },
-                                    "640": {
-                                        "slidesPerView": 4,
-                                        "spaceBetween": 80
-                                    },
-                                    "992": {
-                                        "slidesPerView": 6,
-                                        "spaceBetween": 120
-                                    }
-                                }
-                            }
-                        </script>
-                        <div class="swiper-wrapper align-items-center">
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                            <div class="swiper-slide"><img src="/static/bootstrap/assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
-
-                </div>
-
-            </div><!-- /Clients Section -->
 
             <!-- Contact Section -->
             <div id="contact" class="contact section">

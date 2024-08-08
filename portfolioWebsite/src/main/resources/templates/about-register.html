@@ -66,32 +66,33 @@
         <div id="main" class="main">
             <!-- About Section -->
             <div id="about" class="about section">
-
-	    		<div class="container section-title" data-aos="fade-up">
-	                <h2>About Me</h2>
-	            </div><!-- End Section Title -->
-	            
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>About Me</h2>
+                </div><!-- End Section Title -->
+                
                 <div class="container" data-aos="fade-up">
-                    <div class="row gx-0">
-                        <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
-                            <label class="form-label">제목</label>
-                            <input type="text" class="form-control"><br>
-                            <label class="form-label">내용</label>
-                            <textarea id="content" class="form-control" rows="7" maxlength="500" placeholder="500자 이내로 작성해주세요."></textarea>
-                        </div>
+                    <form action="/about" method="post" enctype="multipart/form-data">
+                        <div class="row gx-0">
+                            <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
+                                <label class="form-label">제목</label>
+                                <input type="text" name="title" class="form-control" required><br>
+                                <label class="form-label">내용</label>
+                                <textarea id="content" name="content" class="form-control" rows="7" maxlength="500" placeholder="500자 이내로 작성해주세요." required></textarea>
+                            </div>
 
-                        <div class="col-lg-6 align-items-center" data-aos="zoom-out" data-aos-delay="200">
-	                        <input type="file" class="form-control" id="imagePath" name="imageFile" >
-	                        <img src="/static/bootstrap/assets/img/bg.jpg" id="imagePreview" class="thumbnail"  alt="이미지 미리 보기">
+                            <div class="col-lg-6 align-items-center" data-aos="zoom-out" data-aos-delay="200">
+                                <input type="file" class="form-control" id="imagePath" name="imageFile">
+                                <img src="/static/bootstrap/assets/img/imgBg.jpg" id="imagePreview" class="thumbnail" alt="이미지 미리 보기">
+                            </div>
                         </div>
-	
-                    </div>
+                        <button type="submit" class="btn btn-primary mt-3">저장</button> <!-- 저장 버튼 추가 -->
+                    </form>
                 </div>
-
             </div>
             <!-- /About Section -->
         </div>
     </div>
 </body>
+
 
 </html>

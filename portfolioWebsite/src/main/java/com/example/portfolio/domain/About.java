@@ -1,5 +1,8 @@
 package com.example.portfolio.domain;
 
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,6 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Component
 public class About {
 	
 	@Id

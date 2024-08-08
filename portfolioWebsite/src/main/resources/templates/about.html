@@ -38,16 +38,12 @@
 
                         <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
                             <h3>About Me</h3>
-                            <h2>"늘 새로운 도전과 배움 속에서 <br>개발하는 것이 즐거운 개발자 황준하입니다."</h2>
-                            <p>
-                            	저의 손으로 제작하는 것을 좋아하기에 프로그램 언어로 개발할 수 있다는 점에서 진로를 정하게 되었습니다.
-                            	개발자라는 직업을 하면서 세상에 도움이 되는 프로그램을 제작하고자 합니다.
-                            	저는 늘 배우는 것에 흥미를 느끼며 새로운 것에 배울 준비가 되어있습니다.
-							</p>
+                            <h2 th:text="${about.title}"></h2>
+                            <p th:text="${about.content}"></p>
                         </div>
 
                         <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                            <img src="/static/bootstrap/assets/img/bg.jpg" class="img-fluid" alt="" style="width:500px; ">
+                            <img th:src="@{/about/{imgUrl}(imgUrl=${about.imgUrl})}" class="img-fluid" alt="" style="width:500px;">
                         </div>
 
                     </div>

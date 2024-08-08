@@ -30,6 +30,9 @@ public class Portfolio {
 	@Column(name = "database", nullable = false)	
 	private String database;
 	
+	@Column(name = "type", nullable = false)	
+	private String type;
+	
 	@Column(name = "description", nullable = false)	
 	private String description;
 }

@@ -23,7 +23,8 @@
 
     <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
     <style>
-    	#main { padding-top : 60px; }
+        #main { padding-top : 60px; }
+        .service-item p { white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */ }
     </style>
 </head>
 
@@ -42,59 +43,53 @@
                 <!-- End Section Title -->
 
                 <div class="container">
-
                     <div class="row gy-4">
-
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item item-cyan position-relative">
                                 <h3>데이터베이스</h3>
-                                <p><br>MariaDB, MyBatis, H2 <br> PostgreSQL, OracleDB, MongoDB</p>
+                                <p th:utext="${techStack.database}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-item item-orange position-relative">
                                 <h3>개발 툴</h3>
-                                <p><br>Visual Studio Code, Eclipse, <br> IntelliJ, Spring Tool Suite 4</p>
+                                <p th:utext="${techStack.devTool}"></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-item item-teal position-relative">
                                 <h3>프론트엔드</h3>
-                                <p><br>HTML5, CSS, JavaScript, React</p>
+                                <p th:utext="${techStack.frontend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="service-item item-red position-relative">
                                 <h3>자격증</h3>
-                                <p><br>정보처리기사, 정보처리산업기사, <br> SQLD, 네트워크관리사2급, 컴퓨터활용능력1급</p>
+                                <p th:utext="${techStack.certificate}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="service-item item-indigo position-relative">
                                 <h3>버전 관리</h3>
-                                <p><br>GitHub, Git, Svn</p>
+                                <p th:utext="${techStack.versionManagement}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="service-item item-pink position-relative">
                                 <h3>백엔드</h3>
-                                <p><br>Java, Jsp, Spring, Spring Boot</p>
+                                <p th:utext="${techStack.backend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
-
                     </div>
-
                 </div>
-
             </div>
             <!-- /Services Section -->
         </div>
     </div>
 </body>
-
 </html>
