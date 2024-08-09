@@ -1,33 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
-
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>등록 페이지</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <link href="/static/bootstrap/assets/img/favicon.png" rel="icon">
-    <link href="/static/bootstrap/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
     <style>
     	#main { padding-top : 60px; }
-    	#width { width: 660px; }
+    	#width { width: 1320px; }
     </style>
 </head>
-
 <body class="index-page">
     <div layout:fragment="content">
         <div id="main" class="main">
@@ -54,21 +33,14 @@
                         <div id="width" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-item item-orange position-relative">
                                 <h3>Tech Stack</h3>
-                            	<a th:href="@{/register/tech-stack-register}" class="read-more stretched-link"><span>등록 및 수정 페이지</span> <i class="bi bi-arrow-right"></i></a>
+                            	<a th:href="@{/tech-stack/register}" class="read-more stretched-link"><span>등록 및 수정 페이지</span> <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div id="width" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-item item-teal position-relative">
                                 <h3>Portfolio</h3>
-                            	<a th:href="@{/register/portfolio-details-register}" class="read-more stretched-link"><span>등록 및 수정 페이지</span> <i class="bi bi-arrow-right"></i></a>
-                            </div>
-                        </div><!-- End Service Item -->
-
-                        <div id="width" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                            <div class="service-item item-red position-relative">
-                                <h3>Contact Me</h3>
-                            	<a th:href="@{/register/contact-register}" class="read-more stretched-link"><span>등록 및 수정 페이지</span> <i class="bi bi-arrow-right"></i></a>
+                            	<a th:href="@{/portfolio/register}" class="read-more stretched-link"><span>등록 및 수정 페이지</span> <i class="bi bi-arrow-right"></i></a>
                             </div>
                         </div><!-- End Service Item -->
                     </div>

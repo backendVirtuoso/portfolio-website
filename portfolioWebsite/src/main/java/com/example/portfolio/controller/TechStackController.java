@@ -26,6 +26,11 @@ public class TechStackController {
         return "tech-stack"; 
     }
 	
+	@GetMapping("/register")
+	public String tech(Model model) {
+		return "tech-stack-register"; 
+	}
+	
 	@PostMapping("")
     public String createTechStack(@ModelAttribute TechStack ts) {
         // 이미지 파일 처리 (저장 등)

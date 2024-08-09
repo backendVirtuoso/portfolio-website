@@ -2,31 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>개인 포트폴리오 사이트</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="/static/bootstrap/assets/img/favicon.png" rel="icon">
-    <link href="/static/bootstrap/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="/static/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Main CSS File -->
-    <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
-    
     <style>
     	#text_box{
 		  font-size: 3.5vw;
@@ -76,12 +52,9 @@
 
 <body class="index-page">
     <div layout:fragment="content">
-
         <div class="main">
-
             <!-- Hero Section -->
             <div id="hero" class="hero section">
-
                 <div class="container" id="typing">
                     <div class="row gy-4">
 	                    <div id="text_box">
@@ -89,15 +62,12 @@
 						</div>
                     </div>
                 </div>
-
             </div><!-- /Hero Section -->
 
             <!-- About Section -->
             <div id="about" class="about section">
-
                 <div class="container" data-aos="fade-up">
                     <div class="row gx-0">
-
                         <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
                             <h3>About Me</h3>
                             <h2 th:text="${about.title}"></h2>
@@ -107,12 +77,9 @@
                         <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
                             <img th:src="@{/about/{imgUrl}(imgUrl=${about.imgUrl})}" class="img-fluid" alt="" style="width:500px;">
                         </div>
-
                     </div>
                 </div>
-
-            </div>
-            <!-- /About Section -->
+            </div><!-- /About Section -->
 
             <!-- Services Section -->
             <div id="services" class="services section">
@@ -121,56 +88,54 @@
                 <div class="container section-title" data-aos="fade-up">
                     <h2>Tech Stack</h2>
                     <p>사용해보고 경험해 본 기술 스택<br></p>
-                </div>
-                <!-- End Section Title -->
+                </div><!-- End Section Title -->
 
                 <div class="container">
                     <div class="row gy-4">
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="service-item item-cyan position-relative">
                                 <h3>데이터베이스</h3>
-                                <p th:text="${techStack.database}"><br></p>
+                                <p th:utext="${techStack.database}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                             <div class="service-item item-orange position-relative">
                                 <h3>개발 툴</h3>
-                                <p th:text="${techStack.devTool}"></p>
+                                <p th:utext="${techStack.devTool}"></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                             <div class="service-item item-teal position-relative">
                                 <h3>프론트엔드</h3>
-                                <p th:text="${techStack.frontend}"><br></p>
+                                <p th:utext="${techStack.frontend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                             <div class="service-item item-red position-relative">
                                 <h3>자격증</h3>
-                                <p th:text="${techStack.certificate}"><br></p>
+                                <p th:utext="${techStack.certificate}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                             <div class="service-item item-indigo position-relative">
                                 <h3>버전 관리</h3>
-                                <p th:text="${techStack.versionManagement}"><br></p>
+                                <p th:utext="${techStack.versionManagement}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
 
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                             <div class="service-item item-pink position-relative">
                                 <h3>백엔드</h3>
-                                <p th:text="${techStack.backend}"><br></p>
+                                <p th:utext="${techStack.backend}"><br></p>
                             </div>
                         </div><!-- End Service Item -->
                     </div>
                 </div>
-            </div>
-            <!-- /Services Section -->
+            </div> <!-- /Services Section -->
             
             <!-- Clients Section -->
             <div id="clients" class="clients section">
@@ -229,9 +194,7 @@
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
-
                 </div>
-
             </div><!-- /Clients Section -->
 
             <!-- Portfolio Section -->
@@ -244,7 +207,6 @@
                 </div><!-- End Section Title -->
 
                 <div class="container">
-
                     <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
                         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
@@ -255,54 +217,29 @@
 
                         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
+							<!-- Portfolio Items -->
+                            <div th:each="item : ${portfolio}" th:classappend="${item.type == 'individual'} ? 'filter-individual' : 'filter-team'" class="col-lg-4 col-md-6 portfolio-item isotope-item">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-fin.jpg" class="img-fluid" alt="">
+                                    <img th:src="@{/portfolio/{imgUrl}(imgUrl=${item.firstImagePath})}" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-fin.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <h4 th:text="${item.type}"></h4>
+                                        <a th:href="@{/portfolio/{imgUrl}(imgUrl=${item.firstImagePath})}" title="Preview" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio/details/{id}(id=${item.id})}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-react.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-react.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
+                            
+                            <!-- 이 div 태그는 로그인한 사용자만 보일 수 있도록 변경할 것 -->
                             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-portfolio.png" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/registerProject.jpg" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Individual</h4>
-                                        <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-portfolio.png" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <h4>Register</h4>
+                                        <a href="/static/bootstrap/assets/img/portfolio/registerProject.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio/register}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
-                            </div><!-- End Portfolio Item -->
-
+                            </div>
                         </div><!-- End Portfolio Container -->
                     </div>
                 </div>
@@ -318,11 +255,8 @@
                 </div><!-- End Section Title -->
 
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
-
                     <div class="row gy-4">
-
                         <div class="col-lg-6">
-
                             <div class="row gy-4">
                                 <div class="col-md-6">
                                     <div class="info-item" data-aos="fade" data-aos-delay="200">
@@ -358,9 +292,7 @@
                                         <p>8:00AM - 23:00PM</p>
                                     </div>
                                 </div><!-- End Info Item -->
-
                             </div>
-
                         </div>
 
                         <div class="col-lg-6">
@@ -394,15 +326,10 @@
                                 </div>
                             </form>
                         </div><!-- End Contact Form -->
-
                     </div>
-
                 </div>
-
             </div><!-- /Contact Section -->
-
         </div>
     </div>
 </body>
-
 </html>	

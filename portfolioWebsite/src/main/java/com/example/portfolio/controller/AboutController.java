@@ -22,11 +22,10 @@ import lombok.RequiredArgsConstructor;
 public class AboutController {
 	
 	private final AboutService aboutService;
-	private final About about;
 	
 	@GetMapping("")
 	public String main(Model model) {
-        About about = aboutService.getAboutById(9);
+        About about = aboutService.getAboutById(1);
         model.addAttribute("about", about);
         return "about";
     }

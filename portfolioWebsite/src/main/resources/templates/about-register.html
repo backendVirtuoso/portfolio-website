@@ -2,61 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>나에 대해서</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <link href="/static/bootstrap/assets/img/favicon.png" rel="icon">
-    <link href="/static/bootstrap/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
-    
+    <title>About Me 등록 페이지</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
-    	#main { padding-top : 60px; }
-    	label { font-weight: bold; }
-    	
+        #main { padding-top: 60px; }
+        label { font-weight: bold; }
+        
         #imagePreview {
             width: 650px;
             height: 300px;
-            background-color: lightgray;
-            border-radius: 20px 20px / 20px 20px;
+            border: 2px solid black;
+            border-radius: 20px;
             overflow: hidden;
             margin: 20px 10px 10px 0px;
+        }
+
+        #imagePreview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     </style>
 
     <script>
         function loadFile(input) {
-            let file = input.files[0]; // 선택된 파일 가져오기
+            // 선택된 파일이 있을 경우
+            if (input.files && input.files[0]) {
+                let file = input.files[0]; // 선택된 파일 가져오기
+                let newImage = document.createElement("img"); // 새 이미지 추가
 
-            let newImage = document.createElement("img"); //새 이미지 추가
+                // 이미지 source 가져오기
+                newImage.src = URL.createObjectURL(file);
 
-            //이미지 source 가져오기
-            newImage.src = URL.createObjectURL(file);
-            newImage.id = "img-id"
-            newImage.style.width = "100%";
-            newImage.style.height = "100%";
-            newImage.style.objectFit = "cover";
+                // 기존 이미지 제거
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.innerHTML = ''; // 기존 이미지를 비움
 
-            //이미지를 image-show div에 추가
-            let container = document.getElementById('image-show');
-            container.appendChild(newImage);
+                // 이미지를 imagePreview div에 추가
+                imagePreview.appendChild(newImage);
+            }
         }
-        
     </script>
     
 </head>
@@ -75,14 +61,14 @@
                         <div class="row gx-0">
                             <div class="col-lg-6 d-flex flex-column justify-content-center content" data-aos="fade-up" data-aos-delay="200">
                                 <label class="form-label">제목</label>
-                                <input type="text" name="title" class="form-control" required><br>
+                                <input type="text" name="title" class="form-control" placeholder="제목을 작성해주세요." required><br>
                                 <label class="form-label">내용</label>
                                 <textarea id="content" name="content" class="form-control" rows="7" maxlength="500" placeholder="500자 이내로 작성해주세요." required></textarea>
                             </div>
 
                             <div class="col-lg-6 align-items-center" data-aos="zoom-out" data-aos-delay="200">
-                                <input type="file" class="form-control" id="imagePath" name="imageFile">
-                                <img src="/static/bootstrap/assets/img/imgBg.jpg" id="imagePreview" class="thumbnail" alt="이미지 미리 보기">
+                                <input type="file" class="form-control" id="imagePath" name="imageFile" onchange="loadFile(this)">
+                                <div id="imagePreview" class="thumbnail"></div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-3">저장</button> <!-- 저장 버튼 추가 -->
@@ -93,6 +79,5 @@
         </div>
     </div>
 </body>
-
 
 </html>

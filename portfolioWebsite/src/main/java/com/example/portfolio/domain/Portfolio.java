@@ -35,4 +35,17 @@ public class Portfolio {
 	
 	@Column(name = "description", nullable = false)	
 	private String description;
+	
+	@Column(name = "image_paths")
+    private String imagePaths;
+	
+	public String getFirstImagePath() {
+        if (imagePaths != null && !imagePaths.isEmpty()) {
+            String[] paths = imagePaths.split(",");
+            if (paths.length > 0) {
+                return paths[0].trim(); // Return the first image path, trimmed
+            }
+        }
+        return null; // Return null if no images are found
+    }
 }

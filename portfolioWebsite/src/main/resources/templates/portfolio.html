@@ -2,26 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>포트폴리오</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <link href="/static/bootstrap/assets/img/favicon.png" rel="icon">
-    <link href="/static/bootstrap/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/bootstrap/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
+    <title>포트폴리오 목록 페이지</title>
     <style>
     	#main { padding-top : 60px; }
     </style>
@@ -52,73 +33,35 @@
 
                         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
+							<!-- Portfolio Items -->
+                            <div th:each="item : ${portfolioItems}" th:classappend="${item.type == 'individual'} ? 'filter-individual' : 'filter-team'" class="col-lg-4 col-md-6 portfolio-item isotope-item">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-fin.jpg" class="img-fluid" alt="">
+                                    <img th:src="@{/portfolio/{imgUrl}(imgUrl=${item.firstImagePath})}" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-fin.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <h4 th:text="${item.type}"></h4>
+                                        <a th:href="@{/portfolio/{imgUrl}(imgUrl=${item.firstImagePath})}" title="Preview" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio/details/{id}(id=${item.id})}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-springboot.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-team">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-react.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Team</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-react.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-
+                            
+                            <!-- 이 div 태그는 로그인한 사용자만 보일 수 있도록 변경할 것 -->
                             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
                                 <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-portfolio.png" class="img-fluid" alt="">
+                                    <img src="/static/bootstrap/assets/img/portfolio/registerProject.jpg" class="img-fluid" alt="">
                                     <div class="portfolio-info">
-                                        <h4>Individual</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-portfolio.png" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <h4>Register</h4>
+                                        <a href="/static/bootstrap/assets/img/portfolio/registerProject.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                                        <a th:href="@{/portfolio/register}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
-                            </div><!-- End Portfolio Item -->
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-portfolio.png" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Individual</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-portfolio.png" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/001-portfolio.png" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Individual</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/001-portfolio.png" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio-details}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- End Portfolio Item -->
+                            </div>
+                            
                         </div><!-- End Portfolio Container -->
                     </div>
                 </div>
             </div><!-- /Portfolio Section -->
+            
         </div>
     </div>
 </body>
