@@ -21,7 +21,8 @@
 		    opacity: 0;
 		  }
 		}
-		.service-item p { white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */ }
+		
+		p { white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */ }
     </style>
     <script>
     	document.addEventListener("DOMContentLoaded", function() {
@@ -136,7 +137,7 @@
                     </div>
                 </div>
             </div> <!-- /Services Section -->
-            
+
             <!-- Clients Section -->
             <div id="clients" class="clients section">
 
@@ -262,8 +263,7 @@
                                     <div class="info-item" data-aos="fade" data-aos-delay="200">
                                         <i class="bi bi-geo-alt"></i>
                                         <h3>Address</h3>
-                                        <p>A108 Adam Street</p>
-                                        <p>인천, NY 535022</p>
+                                        <p th:text="${contact.addr}"></p>
                                     </div>
                                 </div><!-- End Info Item -->
 
@@ -271,7 +271,7 @@
                                     <div class="info-item" data-aos="fade" data-aos-delay="300">
                                         <i class="bi bi-telephone"></i>
                                         <h3>Call Me</h3>
-                                        <p>+82 010 4175 6818</p>
+                                        <p th:text="${contact.tel}"></p>
                                     </div>
                                 </div><!-- End Info Item -->
 
@@ -279,8 +279,7 @@
                                     <div class="info-item" data-aos="fade" data-aos-delay="400">
                                         <i class="bi bi-envelope"></i>
                                         <h3>Email Me</h3>
-                                        <p>h_leopold@naver.com</p>
-                                        <p>ha01821113@gmail.com</p>
+                                        <p th:text="${contact.email}"></p>
                                     </div>
                                 </div><!-- End Info Item -->
 
@@ -288,15 +287,14 @@
                                     <div class="info-item" data-aos="fade" data-aos-delay="500">
                                         <i class="bi bi-clock"></i>
                                         <h3>Open Hours</h3>
-                                        <p>Monday - Sunday</p>
-                                        <p>8:00AM - 23:00PM</p>
+                                        <p th:text="${contact.openHours}"></p>
                                     </div>
                                 </div><!-- End Info Item -->
                             </div>
                         </div>
 
                         <div class="col-lg-6">
-                            <form action="/static/bootstrap/forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <form action="/contact/send" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                                 <div class="row gy-4">
 
                                     <div class="col-md-6">
@@ -331,5 +329,22 @@
             </div><!-- /Contact Section -->
         </div>
     </div>
+    <script>
+	    document.addEventListener("DOMContentLoaded", function() {
+		    var sentMessage = document.querySelector(".sent-message");
+		    var errorMessage = document.querySelector(".error-message");
+		
+		    // 성공 메시지와 실패 메시지 중 하나가 존재할 경우 처리
+		    if (sentMessage || errorMessage) {
+		        var messageToShow = sentMessage || errorMessage; // 존재하는 메시지를 선택
+		        messageToShow.style.display = "block"; // 메시지를 보이게 함
+		
+		        setTimeout(function() {
+		            messageToShow.style.display = "none"; // 5초 후에 숨김
+		        }, 5000);
+		    }
+		});
+
+	</script>
 </body>
 </html>	

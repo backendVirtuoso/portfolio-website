@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" layout:decorate="~{index}">
+
+<head>
+    <title>Contact Me 등록 페이지</title>
+    <style>
+        #main { padding-top : 60px; }
+    </style>
+</head>
+
+<body class="index-page">
+<div layout:fragment="content">
+    <div id="main" class="main">
+        <!-- Contact Section -->
+        <div id="contact" class="contact section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p>Contact Me</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <form action="/contact" method="post" enctype="multipart/form-data">
+	                <div class="row gy-4">
+	                    <div class="col-lg-6">
+                        	<div class="row gy-4">
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="200">
+                                        <i class="bi bi-geo-alt"></i>
+                                        <h3><label class="form-label" for="addr">Address</label></h3>
+                                        <input type="text" id="addr" name="addr" class="form-control" placeholder="주소를 작성해주세요." required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="300">
+                                        <i class="bi bi-telephone"></i>
+                                        <h3><label class="form-label" for="tel">Call Me</label></h3>
+                                        <input type="text" id="tel" name="tel" class="form-control" placeholder="전화번호를 작성해주세요." required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="400">
+                                        <i class="bi bi-envelope"></i>
+                                        <h3><label class="form-label" for="email">Email Me</label></h3>
+                                        <input type="email" id="email" name="email" class="form-control" rows="3" placeholder="이메일을 작성해주세요." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item" data-aos="fade" data-aos-delay="500">
+                                        <i class="bi bi-clock"></i>
+                                        <h3><label class="form-label" for="openHours">Open Hours</label></h3>
+                                        <textarea id="openHours" name="openHours" class="form-control" rows="3" placeholder="연락가능시간을 작성해주세요." required></textarea>
+                                    </div>
+                                </div>
+	                        </div>
+	                            
+	                    </div>
+	
+	                    <div class="col-lg-6 php-email-form">
+	                        <div class="row gy-4">
+	
+	                            <div class="col-md-6">
+	                                <input type="text" name="name" class="form-control" placeholder="Your Name" required="" readonly>
+	                            </div>
+	
+	                            <div class="col-md-6 ">
+	                                <input type="email" class="form-control" name="email" placeholder="Your Email" required="" readonly>
+	                            </div>
+	
+	                            <div class="col-12">
+	                                <input type="text" class="form-control" name="subject" placeholder="Subject" required="" readonly>
+	                            </div>
+	
+	                            <div class="col-12">
+	                                <textarea class="form-control" name="message" rows="6" placeholder="Message" required="" readonly></textarea>
+	                            </div>
+	
+	                            <div class="col-12 text-center">
+	                                <div class="loading">Loading</div>
+	                                <div class="error-message"></div>
+	                                <div class="sent-message">Your message has been sent. Thank you!</div>
+					                <button type="submit" class="btn btn-primary mt-3">저장</button>
+	                            </div>
+	                        </div>
+	                    </div><!-- End Contact Form -->
+	                </div>
+                </form>
+            </div>
+        </div><!-- /Contact Section -->
+
+    </div>
+</div>
+</body>
+
+</html>
