@@ -26,6 +26,12 @@
 
     <!-- Main CSS File -->
     <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
+    <style>
+    	.social-links {
+    		padding-left: 584px;
+    		padding-bottom: 15px;
+    	}
+    </style>
 
     <!-- =======================================================
     * Template Name: FlexStart
@@ -50,7 +56,15 @@
                     <li><a th:href="@{/tech-stack}" class="nav-link">Tech Stack</a></li>
                     <li><a th:href="@{/portfolio}" class="nav-link">Portfolio</a></li>
                     <li><a th:href="@{/contact}" class="nav-link">Contact Me</a></li>
-                    <li><a th:href="@{/register}" class="nav-link">Register, Update</a></li>
+                    <li><a th:href="@{/register}" sec:authorize="isAuthenticated()" class="nav-link">Register, Update</a></li>
+                    <li>
+                    	<a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
+                  		<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
+              		</li>
+              		<li>
+	                  	<a class="nav-link" sec:authorize="isAuthenticated()"
+	                     th:href="@{/user/mypage/{username}(username=${#authentication.principal.username})}">My Info</a>
+	               </li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </div>
@@ -115,6 +129,11 @@
         </div>-->
 
         <div class="container copyright text-center mt-4">
+	        	<div class="social-links d-flex" >
+	                <a href="https://github.com/backendVirtuoso"><i class="bi bi-github"></i></a>
+	                <a href="https://www.instagram.com/jh0813_/"><i class="bi bi-instagram"></i></a>
+	                <a href="mailto:h_leopold@naver.com"><i class="bi bi-envelope-fill icon" ></i></a>
+	            </div>
             <p>© <span>Copyright</span> <strong class="px-1 sitename">FlexStart</strong> <span>All Rights Reserved</span></p>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->

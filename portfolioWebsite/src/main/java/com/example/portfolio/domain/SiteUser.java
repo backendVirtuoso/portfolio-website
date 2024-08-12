@@ -1,32 +1,32 @@
 package com.example.portfolio.domain;
 
-import org.springframework.stereotype.Component;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
-@Component
-public class About {
+@Table(name = "users")
+public class SiteUser {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
-	private Integer id;
+    private Integer id;
 
-	@Column(name = "title", nullable = false, length = 500)
-	private String title;
-	
-	@Column(name = "content", nullable = false, length = 500)
-	private String content;
-	
-	@Column(name = "img_url", nullable = false)
-	private String imgUrl;
+    @Column(unique = true)
+    private String userId;
+
+    private String password;
+
+    private String name;
+
+    @Column(unique = true)
+    private String email;
 }

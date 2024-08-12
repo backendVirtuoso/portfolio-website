@@ -27,8 +27,8 @@ public class PortfolioController {
 	
 	@GetMapping("")
     public String portfolio(Model model) {
-		List<Portfolio> portfolioItems = portfolioService.getAllPortfolioItems();
-        model.addAttribute("portfolioItems", portfolioItems);
+		List<Portfolio> portfolio = portfolioService.getAllPortfolioItems();
+        model.addAttribute("portfolio", portfolio);
         return "portfolio"; 
     }
 	

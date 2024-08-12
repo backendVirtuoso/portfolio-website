@@ -1,6 +1,5 @@
 package com.example.portfolio.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,23 +9,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.portfolio.domain.Contact;
-import com.example.portfolio.domain.ContactForm;
+import com.example.portfolio.dto.ContactForm;
 import com.example.portfolio.service.ContactService;
 import com.example.portfolio.service.EmailService;
 
-import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/contact")
 public class ContactController {
 	
-	@Autowired
 	private final ContactService contactService;
-	@Autowired
 	private final EmailService emailService;
 	
 	@GetMapping
@@ -67,7 +61,4 @@ public class ContactController {
 	    }
 	    return "redirect:/contact";
 	}
-
-
-
 }

@@ -23,6 +23,26 @@
 		}
 		
 		p { white-space: pre-wrap; /* 줄바꿈과 공백을 유지 */ }
+		
+		.php-email-form .error-message {
+		  display: block;
+		  background: #df1529;
+		  color: #ffffff;
+		  text-align: left;
+		  padding: 15px;
+		  margin-bottom: 24px;
+		  font-weight: 600;
+		}
+		
+		.php-email-form .sent-message {
+		  display: block;
+		  color: #ffffff;
+		  background: #059652;
+		  text-align: center;
+		  padding: 15px;
+		  margin-bottom: 24px;
+		  font-weight: 600;
+		}
     </style>
     <script>
     	document.addEventListener("DOMContentLoaded", function() {
@@ -138,14 +158,14 @@
                 </div>
             </div> <!-- /Services Section -->
 
-            <!-- Clients Section -->
+<!--             Clients Section 
             <div id="clients" class="clients section">
 
-                <!-- Section Title -->
+                 Section Title 
                 <div class="container section-title" data-aos="fade-up">
                     <h2>Clients</h2>
                     <p>We work with best clients<br></p>
-                </div><!-- End Section Title -->
+                </div> End Section Title 
 
                 <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -196,20 +216,19 @@
                         <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </div><!-- /Clients Section -->
-
+            </div> /Clients Section 
+-->
             <!-- Portfolio Section -->
             <div id="portfolio" class="portfolio section">
 
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
                     <h2>Portfolio</h2>
-                    <p>Check our latest work</p>
+                    <p>현재까지 작업한 포트폴리오</p>
                 </div><!-- End Section Title -->
 
                 <div class="container">
                     <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
                         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                             <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-team">Team</li>
@@ -230,17 +249,17 @@
                                 </div>
                             </div><!-- End Portfolio Item -->
                             
-                            <!-- 이 div 태그는 로그인한 사용자만 보일 수 있도록 변경할 것 -->
-                            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
-                                <div class="portfolio-content h-100">
-                                    <img src="/static/bootstrap/assets/img/portfolio/registerProject.jpg" class="img-fluid" alt="">
-                                    <div class="portfolio-info">
-                                        <h4>Register</h4>
-                                        <a href="/static/bootstrap/assets/img/portfolio/registerProject.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a th:href="@{/portfolio/register}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                                    </div>
-                                </div>
-                            </div>
+                            <!-- 로그인한 사용자만 보일 수 있도록 조건 추가 -->
+							<div th:if="${#authentication.principal != null}" sec:authorize="isAuthenticated()" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
+							    <div class="portfolio-content h-100">
+							        <img src="/static/bootstrap/assets/img/portfolio/registerProject.jpg" class="img-fluid" alt="">
+							        <div class="portfolio-info">
+							            <h4>Register</h4>
+							            <a href="/static/bootstrap/assets/img/portfolio/registerProject.jpg" title="Branding 1" data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+							            <a th:href="@{/portfolio/register}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+							        </div>
+							    </div>
+							</div>
                         </div><!-- End Portfolio Container -->
                     </div>
                 </div>
@@ -294,7 +313,7 @@
                         </div>
 
                         <div class="col-lg-6">
-                            <form action="/contact/send" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+                            <form action="/home/send" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                                 <div class="row gy-4">
 
                                     <div class="col-md-6">
@@ -315,10 +334,9 @@
 
                                     <div class="col-12 text-center">
                                         <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                        <button type="submit">Send Message</button>
+                                        <div class="error-message" th:if="${messageType == 'error'}" th:text="${message}"></div>
+	                                    <div class="sent-message" th:if="${messageType == 'success'}" th:text="${message}"></div>
+	                                    <button type="submit">Send Message</button>
                                     </div>
 
                                 </div>
@@ -328,23 +346,22 @@
                 </div>
             </div><!-- /Contact Section -->
         </div>
+	    <script>
+		    document.addEventListener("DOMContentLoaded", function() {
+			    var sentMessage = document.querySelector(".sent-message");
+			    var errorMessage = document.querySelector(".error-message");
+			
+			    // 성공 메시지와 실패 메시지 중 하나가 존재할 경우 처리
+			    if (sentMessage || errorMessage) {
+			        var messageToShow = sentMessage || errorMessage; // 존재하는 메시지를 선택
+			        messageToShow.style.display = "block"; // 메시지를 보이게 함
+			
+			        setTimeout(function() {
+			            messageToShow.style.display = "none"; // 5초 후에 숨김
+			        }, 5000);
+			    }
+			});
+		</script>
     </div>
-    <script>
-	    document.addEventListener("DOMContentLoaded", function() {
-		    var sentMessage = document.querySelector(".sent-message");
-		    var errorMessage = document.querySelector(".error-message");
-		
-		    // 성공 메시지와 실패 메시지 중 하나가 존재할 경우 처리
-		    if (sentMessage || errorMessage) {
-		        var messageToShow = sentMessage || errorMessage; // 존재하는 메시지를 선택
-		        messageToShow.style.display = "block"; // 메시지를 보이게 함
-		
-		        setTimeout(function() {
-		            messageToShow.style.display = "none"; // 5초 후에 숨김
-		        }, 5000);
-		    }
-		});
-
-	</script>
 </body>
 </html>	

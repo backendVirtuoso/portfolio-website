@@ -1,4 +1,4 @@
-package com.example.portfolio.domain;
+package com.example.portfolio.dto;
 
 import lombok.Getter;
 import lombok.Setter;
