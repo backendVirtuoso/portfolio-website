@@ -32,7 +32,7 @@
                         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
 							<!-- Portfolio Items -->
-                            <div th:each="item : ${portfolio}" th:classappend="${item.type == 'individual'} ? 'filter-individual' : 'filter-team'" class="col-lg-4 col-md-6 portfolio-item isotope-item">
+                            <div th:each="item : ${portfolio}" th:classappend="${item.type == 'individual'} ? 'filter-individual' : 'filter-team'" class="col-lg-6 col-md-6 portfolio-item isotope-item">
                                 <div class="portfolio-content h-100">
                                     <img th:src="@{/portfolio/{imgUrl}(imgUrl=${item.firstImagePath})}" class="img-fluid" alt="">
                                     <div class="portfolio-info">
@@ -44,7 +44,7 @@
                             </div><!-- End Portfolio Item -->
                             
                             <!-- 로그인한 사용자만 보일 수 있도록 조건 추가 -->
-							<div th:if="${#authentication.principal != null}" sec:authorize="isAuthenticated()" class="col-lg-4 col-md-6 portfolio-item isotope-item filter-individual">
+							<div th:if="${#authentication.principal != null}" sec:authorize="isAuthenticated()" class="col-lg-6 col-md-6 portfolio-item isotope-item filter-individual">
 							    <div class="portfolio-content h-100">
 							        <img src="/static/bootstrap/assets/img/portfolio/registerProject.jpg" class="img-fluid" alt="">
 							        <div class="portfolio-info">
