@@ -12,8 +12,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.portfolio.domain.SiteUser;
 import com.example.portfolio.domain.UserRole;
+import com.example.portfolio.domain.UserTable;
 import com.example.portfolio.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -27,12 +27,12 @@ public class UserSecurityService implements UserDetailsService {
 	// 시큐리티 Session(내부 Authentication(내부 UserDetails))
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-		Optional<SiteUser> _siteUser = this.userRepository.findByUserId(userId);
+		Optional<UserTable> _userTable = this.userRepository.findByUserId(userId);
 		
-		if (_siteUser.isEmpty()) {
+		if (_userTable.isEmpty()) {
 			throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
 		}
-		SiteUser siteUser = _siteUser.get();
+		UserTable userTable = _userTable.get();
 		
 		// 사용자의 권한 정보
 		List<GrantedAuthority> authorities = new ArrayList<>();
@@ -41,6 +41,7 @@ public class UserSecurityService implements UserDetailsService {
 		} else {
 			authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
 		}
-		return new User(siteUser.getUserId(), siteUser.getPassword(), authorities);
+		return new User(userTable.getUserId(), userTable.getPassword(), authorities);
 	}
+
 }

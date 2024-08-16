@@ -1,5 +1,8 @@
 package com.example.portfolio.dto;
 
+import com.example.portfolio.domain.UserTable;
+import com.example.portfolio.domain.UserRole;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Pattern;
@@ -27,7 +30,7 @@ public class UserCreateForm {
 	private String password2;
 	
 	@NotEmpty(message = "이메일은 필수 항목입니다.")
-//    @Pattern(regexp = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$", message = "올바른 이메일 주소를 입력해주세요.")
 	@Email(message = "올바른 이메일 주소를 입력해주세요.")
 	private String email;	
+	
 }

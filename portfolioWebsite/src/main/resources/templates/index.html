@@ -27,10 +27,10 @@
     <!-- Main CSS File -->
     <link href="/static/bootstrap/assets/css/main.css" rel="stylesheet">
     <style>
-    	.social-links {
-    		padding-left: 584px;
-    		padding-bottom: 15px;
-    	}
+        .social-links {
+            padding-left: 584px;
+            padding-bottom: 15px;
+        }
     </style>
 
     <!-- =======================================================
@@ -58,13 +58,13 @@
                     <li><a th:href="@{/contact}" class="nav-link">Contact Me</a></li>
                     <li><a th:href="@{/register}" sec:authorize="isAuthenticated()" class="nav-link">Register, Update</a></li>
                     <li>
-                    	<a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
-                  		<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
-              		</li>
-              		<li>
-	                  	<a class="nav-link" sec:authorize="isAuthenticated()"
-	                     th:href="@{/user/mypage/{username}(username=${#authentication.principal.username})}">My Info</a>
-	               </li>
+                        <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
+                        <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
+                    </li>
+                    <li>
+					    <a class="nav-link" sec:authorize="isAuthenticated() and not(authentication.principal instanceof T(org.springframework.security.oauth2.core.user.DefaultOAuth2User))"
+					       th:href="@{/user/mypage/{username}(username=${#authentication.principal.attributes['email'] != null ? #authentication.principal.attributes['email'] : #authentication.principal.username})}">My Info</a>
+					</li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </div>
@@ -160,5 +160,6 @@
 
     <!-- Main JS File -->
     <script src="/static/bootstrap/assets/js/main.js"></script>
+    <script src="/static/bootstrap/assets/js/token.js"></script>
 </body>
 </html>

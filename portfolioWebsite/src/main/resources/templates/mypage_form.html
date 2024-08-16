@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html layout:decorate="~{index}">
+
 <head>
     <title>MyPage</title>
     <style>
-      .form-container {
-         max-width: 600px;
-         margin: 0 auto;
-         padding: 20px;
-         background-color: #fff;
-         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-         margin-top: 150px;
-         margin-bottom: 60px;
-      }
-	</style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 150px;
+            margin-bottom: 60px;
+        }
+    </style>
 </head>
+
 <body class="index-page">
-	<div layout:fragment="content" class="container my-5">
+    <div layout:fragment="content" class="container my-5">
         <div class="form-container">
             <h4 class="card-title mb-4 text-center">회원 정보 수정</h4>
             <form th:action="@{|/user/mypage/${siteUser.userId}|}" th:object="${siteUser}" method="post">
@@ -41,7 +43,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="name" class="form-label">이름</label>
-                    <input type="text" class="form-control" id="name" th:field="*{name}">
+                    <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="이름을 입력해주세요">
                 </div>
                 <div class="text-center mb-3">
                     <button type="submit" class="btn btn-primary w-100">회원 정보 수정</button>
@@ -54,38 +56,38 @@
                     <button type="button" class="btn btn-danger w-100" data-bs-toggle="modal" data-bs-target="#confirmModal">회원 탈퇴</button>
                 </div>
             </form>
-	    </div>
-	
-	    <!-- Bootstrap Modal -->
-	    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-	        <div class="modal-dialog">
-	            <div class="modal-content">
-	                <div class="modal-header">
-	                    <h5 class="modal-title" id="confirmModalLabel">회원 탈퇴 확인</h5>
-	                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-	                </div>
-	                <div class="modal-body">
-	                    회원 탈퇴를 하시려면 아래에 "회원탈퇴"를 입력해주세요.
-	                    <input type="text" id="confirmText" class="form-control mt-2" placeholder="회원탈퇴">
-	                </div>
-	                <div class="modal-footer">
-	                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-	                    <button type="button" class="btn btn-primary" onclick="checkConfirmation()">확인</button>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	
-	    <script>
-	        function checkConfirmation() {
-	            var userInput = document.getElementById('confirmText').value.trim();
-	            if (userInput === '회원탈퇴') {
-	                document.getElementById('deleteForm').submit();
-	            } else {
-	                alert('입력한 문구가 일치하지 않습니다. "회원탈퇴"라고 정확히 입력해주세요.');
-	            }
-	        }
-	    </script>
+        </div>
+    
+        <!-- Bootstrap Modal -->
+        <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmModalLabel">회원 탈퇴 확인</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        회원 탈퇴를 하시려면 아래에 "회원탈퇴"를 입력해주세요.
+                        <input type="text" id="confirmText" class="form-control mt-2" placeholder="회원탈퇴">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                        <button type="button" class="btn btn-primary" onclick="checkConfirmation()">확인</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <script>
+            function checkConfirmation() {
+                var userInput = document.getElementById('confirmText').value.trim();
+                if (userInput === '회원탈퇴') {
+                    document.getElementById('deleteForm').submit();
+                } else {
+                    alert('입력한 문구가 일치하지 않습니다. "회원탈퇴"라고 정확히 입력해주세요.');
+                }
+            }
+        </script>
     </div>
 </body>
 </html>
