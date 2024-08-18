@@ -79,7 +79,7 @@
                             <div class="swiper-wrapper align-items-center">
                                 <!-- Thymeleaf를 사용하여 동적으로 이미지 로딩 -->
                                 <div class="swiper-slide" th:each="image : ${project.imagePaths.split(',')}">
-                                    <img th:src="@{/portfolio/{imgUrl}(imgUrl=${image})}" alt="Project Image">
+                                    <img th:src="@{/static/bootstrap/assets/img/portfolio/{imgUrl}(imgUrl=${image})}" alt="Project Image">
                                 </div>
                             </div>
                             <div class="swiper-pagination"></div>

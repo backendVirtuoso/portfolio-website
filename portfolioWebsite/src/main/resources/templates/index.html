@@ -61,9 +61,9 @@
                         <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/user/login}">Login</a>
                         <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/user/logout}">Logout</a>
                     </li>
-                    <li>
+					<li>
 					    <a class="nav-link" sec:authorize="isAuthenticated() and not(authentication.principal instanceof T(org.springframework.security.oauth2.core.user.DefaultOAuth2User))"
-					       th:href="@{/user/mypage/{username}(username=${#authentication.principal.attributes['email'] != null ? #authentication.principal.attributes['email'] : #authentication.principal.username})}">My Info</a>
+					       th:href="@{/user/mypage/{username}(username=${#authentication.principal instanceof T(org.springframework.security.oauth2.core.user.DefaultOAuth2User) ? #authentication.principal.attributes['email'] : #authentication.principal.username})}">My Info</a>
 					</li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
