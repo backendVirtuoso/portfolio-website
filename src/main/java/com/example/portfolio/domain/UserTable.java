@@ -39,11 +39,14 @@ public class UserTable {
     @Column(name = "nickname", unique = true)
     private String nickname;
     
+    private String provider;
+    
     @Builder
-    public UserTable(String email, String password, String nickname) {
+    public UserTable(String email, String password, String nickname, String provider) {
         this.email = email;
         this.password = password;
         this.nickname = nickname;
+        this.provider = provider;
     }
     
 	// update 메서드 추가
