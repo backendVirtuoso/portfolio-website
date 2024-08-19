@@ -1,1 +1,59 @@
-## Bootstrap 템플릿을 이용한 포트폴리오 사이트 제작해보기 (간단히)
+# 부트스트랩 템플릿을 이용한 포트폴리오 사이트 제작해보기 (간단히)
+
+## 💻 개발환경
+### 개발 도구
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square)
+![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat-square)
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square)
+
+### 라이브러리
+![Thymeleaf](https://img.shields.io/badge/Thymeleaf-FFB300?style=flat-square)
+![OAuth2](https://img.shields.io/badge/OAuth2-4CAF50?style=flat-square)
+![Lombok](https://img.shields.io/badge/Lombok-2C3E50?style=flat-square)
+
+### ORM
+![JPA](https://img.shields.io/badge/JPA-0077C2?style=flat-square)
+
+### DB
+![#336791](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square)
+
+### 배
+![AWS Lightsail](https://img.shields.io/badge/AWS%20Lightsail-FF9900?style=flat-square)
+![Cloudtype](https://img.shields.io/badge/Cloudtype-00A3E0?style=flat-square)
+
+<br>
+
+## 🛠 기능 요약
+### 1. OAuth2를 이용한 소셜 로그인 구현
+### 2. 이메일 발송 기능 구현
+### 3. 포트폴리오 내용 생성 기능 구현
+### 4. AWS Lightsail를 통한 배포 기능 구현
+### 5. Cloudtype를 통한 배포 기능 구현
+
+
+<br>
+
+
+## ⏰ 개발 기간
+2024/07/29 ~ 2024/08/19
+
+<br>
+
+## 👩‍💻 멤버 구성
+- 황준하
+
+<br>
+
+## 🖥 화면별 기능
+![005-pf-web](https://github.com/user-attachments/assets/9349cf6c-3311-49a4-b858-6bbcdba79954)
+![006-pf-web](https://github.com/user-attachments/assets/3e221916-8557-4aee-8840-27d28e0a1f99)
+![007-pf-web](https://github.com/user-attachments/assets/bea6aad4-67d9-4347-9ed6-fc1d19c7c643)
+![008-pf-web](https://github.com/user-attachments/assets/765421d8-5d88-4358-b20f-71fd9cda463c)
+![009-pf-web](https://github.com/user-attachments/assets/a08dfdf7-d0b8-45db-b3ac-8d2d0bca67dc)
+![010-pf-web](https://github.com/user-attachments/assets/912738be-8592-472f-b02b-69466ac3dd30)
+![011-pf-web](https://github.com/user-attachments/assets/8a566e8a-c1a6-4a30-86d5-0bad7deac088)
+![012-pf-web](https://github.com/user-attachments/assets/a0c5cef7-5094-4d90-8b23-2bb85314864d)
+
+
