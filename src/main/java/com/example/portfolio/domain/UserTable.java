@@ -36,19 +36,23 @@ public class UserTable {
     @Column(unique = true)
     private String email;
     
+    @Column(name = "nickname", unique = true)
+    private String nickname;
+    
     private String provider;
     
     @Builder
-    public UserTable(String email, String password, String name, String provider) {
+    public UserTable(String email, String password, String nickname, String provider) {
         this.email = email;
         this.password = password;
-        this.name = name;
+        this.nickname = nickname;
         this.provider = provider;
     }
     
 	// update 메서드 추가
-    public UserTable update(String name) {
+    public UserTable update(String name, String nickname) {
         this.name = name;
+        this.nickname = nickname;
         return this;  // 변경된 객체를 반환
     }
     
