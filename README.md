@@ -47,13 +47,7 @@
 <br>
 
 ## 🖥 화면별 기능
-![005-pf-web](https://github.com/user-attachments/assets/9349cf6c-3311-49a4-b858-6bbcdba79954)
-![006-pf-web](https://github.com/user-attachments/assets/3e221916-8557-4aee-8840-27d28e0a1f99)
-![007-pf-web](https://github.com/user-attachments/assets/bea6aad4-67d9-4347-9ed6-fc1d19c7c643)
-![008-pf-web](https://github.com/user-attachments/assets/765421d8-5d88-4358-b20f-71fd9cda463c)
-![009-pf-web](https://github.com/user-attachments/assets/a08dfdf7-d0b8-45db-b3ac-8d2d0bca67dc)
-![010-pf-web](https://github.com/user-attachments/assets/912738be-8592-472f-b02b-69466ac3dd30)
-![011-pf-web](https://github.com/user-attachments/assets/8a566e8a-c1a6-4a30-86d5-0bad7deac088)
-![012-pf-web](https://github.com/user-attachments/assets/a0c5cef7-5094-4d90-8b23-2bb85314864d)
-
+![003](https://github.com/user-attachments/assets/3ed99d9f-b16f-4ed4-bec8-cbd077e1a1ac)
+![004](https://github.com/user-attachments/assets/eac3526f-f104-4281-81a9-1885dc5b4740)
+![005](https://github.com/user-attachments/assets/13a204ab-877f-4605-845c-8157197444c5)
 
