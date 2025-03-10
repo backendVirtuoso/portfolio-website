@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<header id="header" class="header d-flex align-items-center fixed-top" th:fragment="navigation">
+	<div class="container-fluid container-xl position-relative d-flex align-items-center">
+		<a th:href="@{/}" class="logo d-flex align-items-center me-auto"  >
+			<h1 class="sitename">HJH's PORTFOLIO</h1>
+		</a>
+
+		<nav id="navmenu" class="navmenu">
+			<ul>
+				<li><a th:href="@{/}" class="active">Home<br></a></li>
+				<li><a th:href="@{/about}">About</a></li>
+				<li><a th:href="@{/tech-stack}">Skill</a></li>
+				<li><a th:href="@{/projects}">Portfolio</a></li>
+				<li><a th:href="@{/contact}">Contact</a></li>
+			</ul>
+			<i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+		</nav>
+	</div>
+</header>
+
+</body>
+</html>

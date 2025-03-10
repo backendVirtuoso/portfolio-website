@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- Portfolio Section -->
+	<section id="portfolio" class="portfolio section" th:fragment="project">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Portfolio</h2>
+			<p>현재까지 작업한 포트폴리오</p>
+		</div><!-- End Section Title -->
+
+		<div class="container">
+			<div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+				<ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+					<li data-filter="*" class="filter-active">All</li>
+					<li data-filter=".filter-team">Team</li>
+					<li data-filter=".filter-individual">Individual</li>
+				</ul><!-- End Portfolio Filters -->
+
+				<div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+					<div th:each="projectItem : ${project}" th:classappend="${projectItem.type == 'Individual'} ? 'filter-individual' : 'filter-team'" class="col-lg-6 col-md-6 portfolio-item isotope-item">
+						<div class="portfolio-content h-100">
+							<img th:src="@{/static/assets/img/portfolio/{imgUrl}(imgUrl=${projectItem.firstImagePath})}" class="img-fluid" alt="">
+							<div class="portfolio-info">
+								<h4 th:text="${projectItem.type}"></h4>
+								<a th:href="@{/static/assets/img/portfolio/{imgUrl}(imgUrl=${projectItem.firstImagePath})}" title="Preview" data-gallery="portfolio-gallery" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+								<a th:href="@{/portfolio/details/{id}(id=${projectItem.id})}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+							</div>
+						</div>
+					</div><!-- End Portfolio Item -->
+
+				</div><!-- End Portfolio Container -->
+			</div>
+		</div>
+	</section><!-- /Portfolio Section -->
+</body>
+</html>

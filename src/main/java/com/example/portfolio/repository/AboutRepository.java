@@ -1,11 +1,11 @@
 package com.example.portfolio.repository;
 
-import java.util.Optional;
-
+import com.example.portfolio.entity.About;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
-import com.example.portfolio.domain.About;
+import java.util.List;
 
-public interface AboutRepository extends JpaRepository<About, Integer> {
-	Optional<About> findById(Integer id);
+public interface AboutRepository extends JpaRepository<About, Long> {
+    List<About> findAllByIsActive(@Param("isActive") boolean isActive);
 }

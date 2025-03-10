@@ -1,11 +1,11 @@
 package com.example.portfolio.repository;
 
-import java.util.Optional;
-
+import com.example.portfolio.entity.TechStack;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 
-import com.example.portfolio.domain.TechStack;
+import java.util.List;
 
-public interface TechStackRepository extends JpaRepository<TechStack, Integer> {
-	Optional<TechStack> findById(Integer id);
-}
+public interface TechStackRepository extends JpaRepository<TechStack, Long> {
+    List<TechStack> findAllByIsActive(@Param("isActive") boolean isActive);
+} 

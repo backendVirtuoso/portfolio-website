@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- Skill Section -->
+	<section id="services" class="services section" th:fragment="skill">
+
+		<!-- Section Title -->
+		<div class="container section-title" data-aos="fade-up">
+			<h2>Skill</h2>
+			<p>사용해보고 경험해 본 기술 스택<br></p>
+		</div><!-- End Section Title -->
+
+		<div class="container">
+			<div class="row gy-4" th:each="techItem : ${techStack}">
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+					<div class="service-item item-cyan position-relative">
+						<h3>데이터베이스</h3>
+						<p th:text="${techItem.db}"><br></p>
+					</div>
+				</div><!-- End Skill Item -->
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+					<div class="service-item item-orange position-relative">
+						<h3>개발 툴</h3>
+						<p th:text="${techItem.devTool}"></p>
+					</div>
+				</div><!-- End Skill Item -->
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+					<div class="service-item item-teal position-relative">
+						<h3>프론트엔드</h3>
+						<p th:text="${techItem.frontend}"><br></p>
+					</div>
+				</div><!-- End Skill Item -->
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+					<div class="service-item item-red position-relative">
+						<h3>자격증</h3>
+						<p th:text="${techItem.certificate}"><br></p>
+					</div>
+				</div><!-- End Skill Item -->
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+					<div class="service-item item-indigo position-relative">
+						<h3>버전 관리</h3>
+						<p th:text="${techItem.versionManagement}"><br></p>
+					</div>
+				</div><!-- End Skill Item -->
+
+				<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+					<div class="service-item item-pink position-relative">
+						<h3>백엔드</h3>
+						<p th:text="${techItem.backend}"><br></p>
+					</div>
+				</div><!-- End Skill Item -->
+			</div>
+		</div>
+	</section><!-- /Skill Section -->
+</body>
+</html>

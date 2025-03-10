@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<!-- About Section -->
+	<section id="about" class="about section" th:fragment="about">
+		<div class="container" data-aos="fade-up">
+			<div class="row gx-0">
+				<div class="col-lg-8 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+					<div class="content" th:each="aboutItem : ${about}">
+						<h3>About Me</h3>
+						<h2 th:text="${aboutItem.title}">제목</h2>
+						<p th:text="${aboutItem.content}">내용</p>
+					</div>
+				</div>
+				<div class="col-lg-4 d-flex align-items-center justify-content-end" data-aos="zoom-out" data-aos-delay="200" style="text-align: right;">
+					<img th:src="@{/about/{imgUrl}(imgUrl=${about[0].imgUrl})}" alt="" style="width: 298px; float: right;" class="rounded-circle img-fluid">
+				</div>
+			</div>
+		</div>
+	</section><!-- /About Section -->
+</body>
+</html>
