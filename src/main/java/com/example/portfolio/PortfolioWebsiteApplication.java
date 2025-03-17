@@ -12,9 +12,9 @@ public class PortfolioWebsiteApplication implements WebMvcConfigurer {
 		SpringApplication.run(PortfolioWebsiteApplication.class, args);
 	}
 	
-	@Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addRedirectViewController("/", "/home");
-    }
+//	@Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addRedirectViewController("/", "/home");
+//    }
 
 }

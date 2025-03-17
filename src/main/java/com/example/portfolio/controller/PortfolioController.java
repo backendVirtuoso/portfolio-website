@@ -21,7 +21,7 @@ public class PortfolioController {
     private final PortfolioService portfolioService;
     private final EmailService emailService;
 
-    @GetMapping("/")
+    @GetMapping({"/", "/home", "/about", "/skill", "/portfolio", "/contact"})
     public String index(Model model) {
         // About 정보
         List<AboutDTO> about = portfolioService.getAbout();

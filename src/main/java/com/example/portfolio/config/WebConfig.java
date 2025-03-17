@@ -21,13 +21,4 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/about/**").addResourceLocations(aboutPhotoAdd);
         registry.addResourceHandler("/portfolio/**").addResourceLocations(portfolioPhotoAdd);
     }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        // URL 매핑을 직접적인 앵커 링크로 변경
-        registry.addViewController("/about").setViewName("presentation/index");
-        registry.addViewController("/tech-stack").setViewName("presentation/index");
-        registry.addViewController("/projects").setViewName("presentation/index");
-        registry.addViewController("/contact").setViewName("presentation/index");
-    }
 }
