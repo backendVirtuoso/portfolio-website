@@ -1,0 +1,50 @@
+name: Deploy to cloudtype
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Connect deploy key
+        uses: cloudtype-github-actions/connect@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          ghtoken: ${{ secrets.GHP_TOKEN }}
+      - name: Deploy
+        uses: cloudtype-github-actions/deploy@v1
+        with:
+          token: ${{ secrets.CLOUDTYPE_TOKEN }}
+          project: ha01821113/portfolio-website
+          stage: main
+          yaml: >
+            name: hjh-portfolio
+
+            app: java@17
+
+            options:
+              ports: "8081"
+              env:
+                - name: SPRING_DATASOURCE_URL
+                  value: jdbc:postgresql://svc.sel4.cloudtype.app:31734/portfolio
+                - name: SPRING_MAIL_HOST
+                  value: smtp.gmail.com
+                - name: SPRING_MAIL_PORT
+                  value: "587"
+                - name: SPRING_MAIL_USERNAME
+                  value: ha01821113@gmail.com
+                - name: SPRING_MAIL_PASSWORD
+                  value: "null"
+                - name: SPRING_DATASOURCE_USERNAME
+                  value: root
+                - name: SPRING_DATASOURCE_PASSWORD
+                  value: "12345678"
+              buildenv: []
+              includes: src
+            context:
+              git:
+                url: git@github.com:${{ github.repository }}.git
+                ref: ${{ github.ref }}
