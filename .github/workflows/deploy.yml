@@ -29,19 +29,19 @@ jobs:
               ports: "8081"
               env:
                 - name: SPRING_DATASOURCE_URL
-                  value: jdbc:postgresql://svc.sel4.cloudtype.app:31734/portfolio
+                  value: ${{ secrets.SPRING_DATASOURCE_URL }}
                 - name: SPRING_MAIL_HOST
-                  value: smtp.gmail.com
+                  value: ${{ secrets.SPRING_MAIL_HOST }}
                 - name: SPRING_MAIL_PORT
-                  value: "587"
+                  value: ${{ secrets.SPRING_MAIL_PORT }}
                 - name: SPRING_MAIL_USERNAME
-                  value: ha01821113@gmail.com
+                  value: ${{ secrets.SPRING_MAIL_USERNAME }}
                 - name: SPRING_MAIL_PASSWORD
-                  value: "null"
+                  value: ${{ secrets.SPRING_MAIL_PASSWORD }}
                 - name: SPRING_DATASOURCE_USERNAME
-                  value: root
+                  value: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
                 - name: SPRING_DATASOURCE_PASSWORD
-                  value: "12345678"
+                  value: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
               buildenv: []
               includes: src
             context:
