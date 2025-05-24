@@ -1,6 +1,8 @@
 # 부트스트랩 템플릿을 이용한 포트폴리오 사이트 제작해보기 (간단히)
 
 ## 💻 개발환경
+![Image](https://github.com/user-attachments/assets/3daccd42-e84b-429c-86e0-a2030b167859)
+<!--
 ### 개발 언어
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square)
 ![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=flat-square)
@@ -22,7 +24,7 @@
 ### 배포 
 ![AWS Lightsail](https://img.shields.io/badge/AWS%20Lightsail-FF9900?style=flat-square)
 ![Cloudtype](https://img.shields.io/badge/Cloudtype-00A3E0?style=flat-square)
-
+-->
 <br>
 
 ## 🛠 기능 요약
@@ -47,7 +49,6 @@
 <br>
 
 ## 🖥 화면별 기능
-![003](https://github.com/user-attachments/assets/3ed99d9f-b16f-4ed4-bec8-cbd077e1a1ac)
-![004](https://github.com/user-attachments/assets/eac3526f-f104-4281-81a9-1885dc5b4740)
-![005](https://github.com/user-attachments/assets/13a204ab-877f-4605-845c-8157197444c5)
+![Image](https://github.com/user-attachments/assets/9790b69e-995a-4992-8363-2f1840316f9d)
+![Image](https://github.com/user-attachments/assets/605eb40b-3c22-428f-aef7-136f00fecfc2)
 
