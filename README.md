@@ -116,6 +116,12 @@
 
 ---
 
+## 📂 프로젝트 아키텍처
+ ![portfolio-spring](https://github.com/user-attachments/assets/bf1067df-1790-4d88-8346-6acbcec53af1) 
+ ![portfolio-spring erd](https://github.com/user-attachments/assets/3370f62e-a3a8-4e22-b19d-2e78017b844b) 
+
+---
+
 ## 📂 프로젝트 구조
 
 ```
